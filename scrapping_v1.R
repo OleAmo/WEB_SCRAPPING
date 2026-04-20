@@ -70,3 +70,20 @@ option
 select
 enllacos
 
+
+# ---------  EX 03 ----------
+# ---------------------------
+
+
+w <- "https://www.habitaclia.com/comprar-vivienda-en-cornella_de_llobregat/provincia_barcelona-baix_llobregat-area_14/listainmuebles.htm"
+
+web_2 <- read_html(w)
+
+div <- web_2 %>%
+  html_element("div") %>% 
+  html_text2()
+
+
+
+div
+  
