@@ -74,16 +74,24 @@ enllacos
 # ---------  EX 03 ----------
 # ---------------------------
 
+#   -) .classe → class
+#   -) #id → id
+#   -) espai → dins
+#   -) %>% → fill directe
+
+
+#   -)html_elements(".producte h2")
+#   -)html_elements(".llista a")
+
 
 w <- "https://www.habitaclia.com/comprar-vivienda-en-cornella_de_llobregat/provincia_barcelona-baix_llobregat-area_14/listainmuebles.htm"
 
 web_2 <- read_html(w)
 
-div <- web_2 %>%
-  html_element("div") %>% 
+preu<- web_2 %>%
+  html_element(".list-item-content-second .font-2") %>% 
   html_text2()
 
 
-
-div
+preu
   
