@@ -27,7 +27,7 @@ library(rvest)
 #    -) omplir formularis.
 
 
-#  --------  EX 01 ----------
+# ---------  EX 01 ----------
 # ---------------------------
 
 
@@ -44,6 +44,8 @@ enllacos <- web %>%
 titol
 enllacos
 
+# ---------  EX 02 ----------
+# ---------------------------
 
 web_2 <- read_html("https://www.habitaclia.com/")
 
@@ -67,3 +69,4 @@ titol
 option
 select
 enllacos
+
