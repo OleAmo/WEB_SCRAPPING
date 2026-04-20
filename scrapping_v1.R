@@ -92,6 +92,11 @@ preu<- web_2 %>%
   html_element(".list-item-content-second .font-2") %>% 
   html_text2()
 
+list <- web_2 %>%
+  html_element(".list-item-info") %>% 
+  html_text2()
+
 
 preu
+list
   
