@@ -4,6 +4,7 @@
 library(tidyverse)
 library(dplyr)
 library(rvest)
+library(rvest)
 
 
 # -------------  RVEST  -----------
@@ -83,6 +84,19 @@ enllacos
 #   -)html_elements(".producte h2")
 #   -)html_elements(".llista a")
 
+#  ------------- EXEMPLE DE ELEMENT A EXPLORAR
+#  --------------------------------------------
+
+#      <h3 class="list-item-title">
+
+#      <a href="https://www.habitaclia.com/comprar-piso-acogedor_en_el_centro_con_ascensor_calle_ramon_i_cajal_35_centre-cornella_de_llobregat-i52292000000368.htm?f=&amp;geo=p&amp;lo=55" 
+#          target="_self" 
+#          title="Piso  en  Carrer ramon i cajal 35. Acogedor piso en el centro con ascensor" 
+#          itemprop="name">
+
+#      Piso  en  Carrer ramon i cajal 35. Acogedor piso en el centro con ascensor</a>
+  
+
 
 w <- "https://www.habitaclia.com/comprar-vivienda-en-cornella_de_llobregat/provincia_barcelona-baix_llobregat-area_14/listainmuebles.htm"
 
@@ -92,7 +106,11 @@ web <- read_html(w)
 
 titols <- web |> 
   html_elements(".list-item-title a") %>% 
-  html_text2()
+  html_text2() %>% 
+  enc2utf8() # ajuda a fer ENCODING de UTF8 - xo no va bé del tot
+
+
+titols
 
 # Extreure el LINK
 
@@ -110,5 +128,28 @@ descripcio <- web |>
 titols
 links
 descripcio
+
+df <- data.frame(
+  titol = titols,
+  link = links,
+  descripcio = descripcio
+)
+
+df
+
+# ----- EXEMPLE 2 -----------
+# ---------------------------
+
+w <- "https://www.habitaclia.com/comprar-vivienda-en-cornella_de_llobregat/provincia_barcelona-baix_llobregat-area_14/listainmuebles.htm"
+
+web <- read_html(w)
+
+# Extreure el TEXT
+
+preu <- web |> 
+  html_elements("article") %>% 
+  html_text2()
+
+preu
 
   
