@@ -86,17 +86,29 @@ enllacos
 
 w <- "https://www.habitaclia.com/comprar-vivienda-en-cornella_de_llobregat/provincia_barcelona-baix_llobregat-area_14/listainmuebles.htm"
 
-web_2 <- read_html(w)
+web <- read_html(w)
 
-preu<- web_2 %>%
-  html_element(".list-item-content-second .font-2") %>% 
+# Extreure el TEXT
+
+titols <- web |> 
+  html_elements(".list-item-title a") %>% 
   html_text2()
 
-list <- web_2 %>%
-  html_element(".list-item-info") %>% 
-  html_text2()
+# Extreure el LINK
+
+links <- web |> 
+  html_elements(".list-item-title a") %>%  
+  html_attr("href")
 
 
-preu
-list
+# Extreure el DESCRIPCIÓ
+
+descripcio <- web |> 
+  html_elements(".list-item-title a") %>%  
+  html_attr("title")
+
+titols
+links
+descripcio
+
   
