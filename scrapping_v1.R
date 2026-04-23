@@ -139,23 +139,39 @@ df
 # ----- EXEMPLE 2 -----------
 # ---------------------------
 
+#    -) Busco LLOC
+#    -) Busco PREU
+#    -) Creo un DF
+
+#    -) Uso    html_elements()    dins de     html_elements()
+#    -) Així obtinc informació més detallada
+
 w <- "https://www.habitaclia.com/comprar-vivienda-en-cornella_de_llobregat/provincia_barcelona-baix_llobregat-area_14/listainmuebles.htm"
 
 web <- read_html(w)
 
 # Extreure el TEXT
 
+lloc <- web |> 
+  html_elements(".list-item-location") %>% 
+  html_text2()
+
 preu <- web |> 
   html_elements(".list-item-content-second article") %>% 
   html_elements(".font-2") %>% 
   html_text2()
 
-preu_2 <- web |> 
-  html_elements(".list-item-content-second article") %>% 
-  html_elements(".list-item-price-down") %>% 
-  html_text2()
 
+lloc
 preu
-preu_2
+
+df <- data.frame(
+  lloc = lloc,
+  preu = preu
+)
+
+df
+
+
 
   
