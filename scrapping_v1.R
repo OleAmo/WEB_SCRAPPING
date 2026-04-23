@@ -156,6 +156,10 @@ lloc <- web |>
   html_elements(".list-item-location") %>% 
   html_text2()
 
+titol <- web |> 
+  html_elements(".list-item-title") %>% 
+  html_text2()
+
 preu <- web |> 
   html_elements(".list-item-content-second article") %>% 
   html_elements(".font-2") %>% 
@@ -170,7 +174,13 @@ df <- data.frame(
   preu = preu
 )
 
+df_2 <- data.frame(
+  lloc = lloc,
+  titol = titol
+)
+
 df
+df_2
 
 
 
