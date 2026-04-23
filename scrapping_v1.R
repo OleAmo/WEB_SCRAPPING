@@ -4,7 +4,6 @@
 library(tidyverse)
 library(dplyr)
 library(rvest)
-library(rvest)
 
 
 # -------------  RVEST  -----------
@@ -147,9 +146,16 @@ web <- read_html(w)
 # Extreure el TEXT
 
 preu <- web |> 
-  html_elements("article") %>% 
+  html_elements(".list-item-content-second article") %>% 
+  html_elements(".font-2") %>% 
+  html_text2()
+
+preu_2 <- web |> 
+  html_elements(".list-item-content-second article") %>% 
+  html_elements(".list-item-price-down") %>% 
   html_text2()
 
 preu
+preu_2
 
   
