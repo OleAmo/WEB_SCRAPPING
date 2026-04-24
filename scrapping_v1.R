@@ -88,9 +88,8 @@ enllacos
 
 #      <h3 class="list-item-title">
 
-#      <a href="https://www.habitaclia.com/comprar-piso-acogedor_en_el_centro_con_ascensor_calle_ramon_i_cajal_35_centre-cornella_de_llobregat-i52292000000368.htm?f=&amp;geo=p&amp;lo=55" 
-#          target="_self" 
-#          title="Piso  en  Carrer ramon i cajal 35. Acogedor piso en el centro con ascensor" 
+#      <a href="https://www.habitaclia.com/compp;lo=55....." target="_self" 
+#          title="Piso  en  Carrer ramon ....r" 
 #          itemprop="name">
 
 #      Piso  en  Carrer ramon i cajal 35. Acogedor piso en el centro con ascensor</a>
@@ -173,6 +172,8 @@ df <- data.frame(
   lloc = lloc,
   preu = preu
 )
+
+df
 
 df_2 <- data.frame(
   lloc = lloc,
