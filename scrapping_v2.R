@@ -27,15 +27,29 @@ library(rvest)
 #    -)   <a href="/page/2/">Next →</a>
 #    -) </li>
 
-sessio <- session("https://quotes.toscrape.com")
 
-sessio |> 
-  session_follow_link(css = ".next")
+#   - EX 01
+#   -------
+
+sessio <- session("https://quotes.toscrape.com")
 
 sessio2 <- sessio |> 
   session_follow_link(css = ".next")
 
+sessio$url
+sessio$url
 
+
+#   - EX 01
+#   -------
+
+sessio <- session("https://www.habitaclia.com/viviendas-l_antiga_esquerra_de_l_eixample-barcelona.htm")
+
+sessio2 <- sessio |> 
+  session_follow_link(css = ".next")
+
+sessio$url
+sessio2$url
 
 #       ------------- NO ACABA DE ANAR !!
 #  ------------------------------------------
