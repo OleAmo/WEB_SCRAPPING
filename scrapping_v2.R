@@ -46,7 +46,7 @@ sessio$url
 sessio <- session("https://www.habitaclia.com/viviendas-l_antiga_esquerra_de_l_eixample-barcelona.htm")
 
 sessio2 <- sessio |> 
-  session_follow_link(css = ".next")
+  session_follow_link(css = ".active")
 
 sessio$url
 sessio2$url
