@@ -70,16 +70,21 @@ text_web_1[1]
 text_web_2[1]
 
 
-#   - EX 01
-#   -------
+#   ----- EX 01 = mourem x HABITACLIA ----
+#   --------------------------------------
+
+
+# --- ATENCIÓ !!!
+# --------------
+
+#    -) La web de HABITACLIA BOLOQUEJA el SCRAPING
 
 sessio <- session("https://www.habitaclia.com/viviendas-l_antiga_esquerra_de_l_eixample-barcelona.htm")
 
 sessio2 <- sessio |> 
-  session_follow_link(css = ".active")
+  session_follow_link(css = "a")
 
 sessio$url
 sessio2$url
 
-#       ------------- NO ACABA DE ANAR !!
-#  ------------------------------------------
+
