@@ -28,16 +28,46 @@ library(rvest)
 #    -) </li>
 
 
-#   - EX 01
-#   -------
+#   ----- EX 01 = mourem x una pàgina ----
+#   --------------------------------------
+
+#    -) ESTIC a PAG 1
+#    -) ANAR a pag 2 (fent CLICK)
+
+#    -) Info HTML pag 1
+#    -) Info HTML pag 2
+
+
+
+# --- WEB 1
 
 sessio <- session("https://quotes.toscrape.com")
 
+# --- WEB 2
+# --- fer CLIKC a        = <a href =xxxx >  
+# --- <a> està dins de   = <li class ="next" >
+
 sessio2 <- sessio |> 
-  session_follow_link(css = ".next")
+  session_follow_link(css = ".next a")
+
+
+# --- Les URL
 
 sessio$url
-sessio$url
+sessio2$url
+
+# --- La info TEXT HTML de cada WEB
+
+text_web_1 <- sessio |> 
+  html_elements(".text") |> 
+  html_text2()
+
+text_web_2 <- sessio2 |> 
+  html_elements(".text") |> 
+  html_text2()
+
+text_web_1[1]
+text_web_2[1]
 
 
 #   - EX 01
