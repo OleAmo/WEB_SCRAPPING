@@ -79,6 +79,12 @@ text_web_2[1]
 
 #    -) La web de HABITACLIA BOLOQUEJA el SCRAPING
 
+#    -) Dona ERROR =    
+#    -)   Error en read_html.response(x$response, ..., base_url = x$url): 
+#    -)   Forbidden (HTTP 403).
+
+#    -) Segons CHATGPT això vol dir que HABITACLIA ha bloquejat el SCRAPPING
+
 sessio <- session("https://www.habitaclia.com/viviendas-l_antiga_esquerra_de_l_eixample-barcelona.htm")
 
 sessio2 <- sessio |> 
